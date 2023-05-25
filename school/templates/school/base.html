@@ -10,12 +10,7 @@
   <body>
     <ul class="menu-main">
         {% for m in menu %}
-        {% if m.forloop.first %}
-        <li><a class="current" href="#">{{m}}</a></li>
-        {% elif m.forloop.last %}   
-        <li class="right"><a href="#">{{m}}</a></li>
-        {% endif %}
-        <li><a href="#">{{m}}</a></li>
+          <li><a href="{% url m.urlname %}">{{m.title}}</a></li>
         {% endfor %}
     </ul>
 

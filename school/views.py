@@ -3,10 +3,10 @@ from django.shortcuts import render
 from .models import *
 
 menu = [
-    'Главная',
-    'Программы обучения',
-    'О нас',
-    'Контакты',
+    {'title': 'Главная', 'urlname': 'home'},
+    {'title': 'Программы обучения', 'urlname': 'home'},
+    {'title': 'О нас', 'urlname': 'home'},
+    {'title': 'Контакты', 'urlname': 'home'},
 ]
 context = {
     'menu': menu,
@@ -16,12 +16,12 @@ context = {
 def index(request):
     progs = PhotoEducations.objects.filter(pk__lte=4)
     context['clist'] = progs
-    for i in progs:
-        print(i)
     return render(request, 'school/index.html', context=context)
 
 
 def program(request, num):
-    progs = Educations.objects.filter(pk=num)
+    prog = Educations.objects.get(pk=num)
+    p_name = PhotoEducations.objects.get(pk=num)
     context['prog'] = prog
+    context['p_name'] = p_name
     return render(request, 'school/program.html', context=context)

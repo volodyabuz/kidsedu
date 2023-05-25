@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 
 body {
-   background-image: url(https://html5book.ru/wp-content/uploads/2015/07/background39.png);
+   background-image: url('https://html5book.ru/wp-content/uploads/2015/07/background39.png');
    font-family: 'Comfortaa', cursive;
    color: #524f4e;
    font-weight: 300;

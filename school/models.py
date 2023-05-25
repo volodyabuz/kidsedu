@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -14,6 +15,12 @@ class Educations(models.Model):
     )
     about = models.TextField(blank=True)
     type_edu = models.ForeignKey('Categories', on_delete=models.CASCADE, null=True)
+
+    def get_absolute_urs(self):
+        return reverse('programma', kwargs={'name':self.name})
+    
+    def __str__(self):
+        return self.name
 
 
 class Categories(models.Model):
