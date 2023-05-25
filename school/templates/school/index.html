@@ -1,0 +1,27 @@
+{% extends 'school/base.html' %}
+
+{% block content %}
+<div class="five"><h1>Школа для детей!</h1></div>
+<div class="proog">
+  <p>Наша школа дополнительного образования для детей от 3 до 18 лет! У нас всегда весело, продуктивно и чисто!</p>
+  <p>Наши программы обучения</p>
+</div>
+
+{% for i in clist %}
+<div class="product-item">
+  <div class="product-img">
+      {% if i.photo %}
+      <img src="{{ i.photo.url|default_if_none:'#' }}" alt="{{i.name_edu}}">
+      {% endif %}
+  </div>
+  <div class="product-list">
+    <h3>{{i.name_edu}}</h3>
+    <div class="actions">
+      <div class="add-to-cart">
+        <a href="" class="cart-button">Посмотреть</a>
+      </div>
+      </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

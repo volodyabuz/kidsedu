@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'school/css/style.css' %}">
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <ul class="menu-main">
+        {% for m in menu %}
+        {% if m.forloop.first %}
+        <li><a class="current" href="#">{{m}}</a></li>
+        {% elif m.forloop.last %}   
+        <li class="right"><a href="#">{{m}}</a></li>
+        {% endif %}
+        <li><a href="#">{{m}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div class="content">
+        {% block content %}
+        {% endblock content%}
+    </div>
+
+    <div class="footer">
+      <p>Footer</p>
+    </div>
+  </body>
+</html>
