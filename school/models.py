@@ -39,3 +39,6 @@ class Categories(models.Model):
 class PhotoEducations(models.Model):
     name_edu = models.CharField(max_length=40)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+
+    def __str__(self):
+        return self.name_edu
