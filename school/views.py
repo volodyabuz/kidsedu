@@ -8,10 +8,12 @@ menu = [
     {'title': 'О нас', 'urlname': 'home'},
     {'title': 'Контакты', 'urlname': 'home'},
 ]
+
 context = {
     'menu': menu,
     'title': 'Главная страница'
 }
+
 
 def index(request):
     progs = PhotoEducations.objects.filter(pk__lte=4)

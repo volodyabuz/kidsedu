@@ -8,6 +8,14 @@
     <title>{{title}}</title>
   </head>
   <body>
+    <style>
+      body {
+        background-image: url("{% static 'school/images/background.jpg' %}");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      </style>
     <ul class="menu-main">
         {% for m in menu %}
           <li><a href="{% url m.urlname %}">{{m.title}}</a></li>
