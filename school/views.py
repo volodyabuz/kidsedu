@@ -16,10 +16,12 @@ context = {
 
 
 def index(request):
-    progs = PhotoEducations.objects.filter(pk__lte=4)
-    context['clist'] = progs
+    context['kolvo'] = 4
     return render(request, 'school/index.html', context=context)
 
+def all_items(request):
+    context['kolvo'] = None
+    return render(request, 'school/index.html', context=context)
 
 def program(request, num):
     prog = Educations.objects.get(pk=num)
@@ -27,8 +29,3 @@ def program(request, num):
     context['prog'] = prog
     context['p_name'] = p_name
     return render(request, 'school/program.html', context=context)
-
-def all_items(request):
-    prog = PhotoEducations.objects.all()
-    context['clist'] = prog
-    return render(request, 'school/all.html', context=context)

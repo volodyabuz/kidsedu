@@ -1,0 +1,17 @@
+{% for i in clist %}
+<div class="product-item">
+  <div class="product-img">
+      {% if i.photo %}
+      <img src="{{ i.photo.url|default_if_none:'#' }}" alt="{{i.name_edu}}">
+      {% endif %}
+  </div>
+  <div class="product-list">
+    <h3>{{i.name_edu}}</h3>
+    <div class="actions">
+      <div class="add-to-cart">
+        <a href="{% url 'programma' i.pk %}" class="cart-button">Посмотреть</a>
+      </div>
+      </div>
+    </div>
+</div>
+{% endfor %}
