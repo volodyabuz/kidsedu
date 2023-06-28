@@ -8,14 +8,17 @@ class EducationsAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_editable = ('type_edu',)
     list_filter = ('min_age_kids',)
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ('type_name',)
+    list_display = ('id', 'type_name',)
     list_display_links = ('type_name',)
+    prepopulated_fields = {'slug': ('type_name',)}
 
 class PhotoEducationAdmin(admin.ModelAdmin):
     list_display = ('name_edu', 'photo')
+    prepopulated_fields = {'slug': ('name_edu',)}
 
 admin.site.register(Educations, EducationsAdmin)
 admin.site.register(Categories, CategoriesAdmin)
