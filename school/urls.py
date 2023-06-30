@@ -6,4 +6,5 @@ urlpatterns = [
     path('', index, name='home'),
     path('programma/<slug:num>', program, name='programma'),
     path('all', all_items, name='all'),
+    path('add_page', add, name='add')
 ]
