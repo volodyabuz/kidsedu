@@ -1,0 +1,14 @@
+{% extends 'school/base.html' %}
+
+{% block content %}
+{% for i in object_list %}
+<p>{{i.name_edu}}</p>
+<div class="product-item">
+    <div class="product-img">
+        {% if i.photo %}
+        <img src="{{ i.photo.url|default_if_none:'#' }}" alt="{{i.name_edu}}">
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

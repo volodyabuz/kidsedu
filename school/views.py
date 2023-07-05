@@ -1,3 +1,5 @@
+from typing import Any, Dict
+from django.views.generic import ListView
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -22,6 +24,16 @@ def index(request):
     context['kolvo'] = 4
     context['title'] = 'Главная страница'
     return render(request, 'school/index.html', context=context)
+
+class TestPage(ListView):
+    model = PhotoEducations
+    template_name = 'school/test.html'
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context['menu'] = menu
+        context['title'] = 'Тестовая страница'
+        return context
 
 def all_items(request):
     context['kolvo'] = None
